@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-  <script src="script.js"></script>
   <title>Crypto Website</title>
 </head>
 <body>
@@ -32,7 +31,7 @@
     <section class="cover-splash">
       <div class="lead-title">
         <div class="lead-header">
-          Blockchain is the future. Peter Schiff is wrong.
+          Blockchain is the future.
           The new store of value is here
         </div>
         <div class="lead-desc">
@@ -137,10 +136,15 @@
       <div class="sign-up-wrapper">
         <div class="form-body">
           <h1>Sign Up for our World Blockchain</h1>
-          <form>
-            <input type="text" placeholder="Enter Name">
-            <button>Enter</button>
-          </form>
+          <div class="form-holder">
+            <form>
+              <input type="text" placeholder="Enter Name">
+            </form>
+            <form class="email">
+              <input type="text" placeholder="Enter email">
+            </form>
+            <button id="enter-btn">Enter</button>
+          </div>
         </div>
       </div>
     </section>
@@ -155,5 +159,6 @@
       </div>
     </section>
   </div>
+  <script src="script.js"></script>
 </body>
 </html>

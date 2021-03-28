@@ -378,7 +378,7 @@ p:last-child {
   position: relative;
   display: inline-block;
   border-radius: 67px;
-  padding: 11.5rem 10.5rem;
+  padding: 13.5rem 12.5rem;
   width: 935px;
   height: 318px;
   background-image: linear-gradient(to right, #DBB11D, #E0BD3F);
@@ -390,6 +390,11 @@ form {
   border: 1px solid grey;
   background-color: white;
   padding: 2px;
+}
+
+.form-holder {
+  position: relative;
+  bottom: 100px;
 }
 
 form > input {
@@ -411,13 +416,27 @@ form > input:focus {
   align-items: center;
 }
 
-form > button {
+button {
+  margin-top: 50px;
+  margin-left: 70%;
   outline: none;
   background-color: #4BDB48;
   width: 161px;
   height: 58px;
   font-size: 18px;
   font-weight: bold;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.email {
+  margin-top: 50px;
+}
+
+.email > input {
+  font-size: 25px;
 }
 
 .more-wrapper {
