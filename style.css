@@ -9,6 +9,10 @@ body {
   overflow-x: hidden;
 }
 
+.full-container {
+  position: relative;
+}
+
 .pageTitle {
   display: flex;
   padding: 25px 0px 0px 100px;
@@ -77,9 +81,10 @@ p:last-child {
 
 .log-in {
   position: relative;
-  bottom: 20px;
+  right: 10px;
+  bottom: 10px;
   background-color: #DBB11D;
-  padding: 1.25rem 2.5rem;
+  padding: 1rem 2.5rem;
   border-radius: 24px;
   font-size: 18px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -114,7 +119,9 @@ p:last-child {
 }
 
 .lead-title > button {
-  padding: 0.5rem 2.5rem;
+  position: relative;
+  white-space: nowrap;
+  padding: 0.5rem 1.5rem;
   outline: none;
   background-color: #7E8110;
   border-radius: 24px;
@@ -362,39 +369,40 @@ p:last-child {
 }
 
 .signup {
+  display: inline-block;
+  margin-left: 250px;
   margin-top: -450px;
 }
 
 .more {
-  margin-top: 250px;
+  margin-top: 300px;
 }
 
 .sign-up-wrapper {
-  min-width: 600px;
+  min-width: 800px;
   margin-left: 27%;
 }
 
 .form-body {
   position: relative;
-  display: inline-block;
   border-radius: 67px;
-  padding: 13.5rem 12.5rem;
+  padding: 14.5rem 12.5rem;
   width: 935px;
   height: 318px;
-  background-image: linear-gradient(to right, #DBB11D, #E0BD3F);
+  background-image: linear-gradient(to right, #837544, #E0BD3F);
 }
 
 form {
-  display: flex;
-  flex-direction: row;
   border: 1px solid grey;
   background-color: white;
   padding: 2px;
 }
 
 .form-holder {
-  position: relative;
-  bottom: 100px;
+  position: absolute;
+  min-width: 470px;
+  right: 30%;
+  top: 33%;
 }
 
 form > input {
