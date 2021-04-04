@@ -2,6 +2,7 @@ const enterButton = document.querySelector("#enter-btn")
 const inputFields = document.getElementsByTagName("input")
 const formHolder = document.querySelector(".form-holder")
 const moreSec = document.querySelector(".more")
+const descripBar = document.querySelector('.btc-descrip')
 
 enterButton.addEventListener('click', function() {
   for (let field of inputFields) {
@@ -40,5 +41,15 @@ function progress() {
       width++
       element.style.width = width + '%'
     }
+  }
+}
+
+loadAnimation()
+
+function loadAnimation() {
+  var scrollLeft = scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  console.log(scrollLeft)
+  if (scrollLeft > 800) {
+    console.log('happy')
   }
 }

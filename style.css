@@ -190,20 +190,25 @@ p:last-child {
   width: 400px;
   border: 7px solid #D9DA9C;
   border-radius: 41px;
+  animation: pop-out 3.5s ease-in-out;
 }
 
 .btc-descrip:hover, .ether-descrip:hover, .altcoins-descrip:hover {
   cursor: pointer;
-  animation: pop-out 15s ease-in;
 }
 
 @keyframes pop-out {
   0% {
     box-shadow: 20px 20px 10px rgb(66, 66, 21);
+    transform: rotateZ(30deg);
   }
 
-  100% {
+  70% {
     box-shadow: 20px 20px 10px rgb(146, 146, 98);
+    transform: rotateZ(-20deg);
+  }
+
+  98% {
   }
 }
 
@@ -254,6 +259,7 @@ p:last-child {
   display: flex;
   flex-direction: column;  
   justify-content: space-around;
+  box-shadow: 10px 5px rgb(130, 146, 99);
 
 }
 
