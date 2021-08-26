@@ -44,7 +44,8 @@ function progress() {
   }
 }
 
-loadAnimation()
+document.addEventListener('scroll', loadAnimation)
+
 
 function loadAnimation() {
   var scrollLeft = scrollTop = window.pageYOffset || document.documentElement.scrollTop
