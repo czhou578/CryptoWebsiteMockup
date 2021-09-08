@@ -8,7 +8,7 @@ None. Use the local HTML file provided to see changes. Those changes will be see
 
 ## Running app
 
-Just refresh the local HTML file.
+Just refresh the local HTML file to see changes. File for a pull request afterward.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
