@@ -1,0 +1,19 @@
+{
+  "name": "cryptowebsitemockup",
+  "version": "1.0.0",
+  "description": "This is a crypto website that I built just to see where I can take CSS animations. Hope you all enjoy!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czhou578/CryptoWebsiteMockup.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/czhou578/CryptoWebsiteMockup/issues"
+  },
+  "homepage": "https://github.com/czhou578/CryptoWebsiteMockup#readme"
+}
