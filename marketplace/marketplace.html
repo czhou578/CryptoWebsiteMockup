@@ -4,6 +4,7 @@
     Going to use the 
 
     cards will not be clickable
+    result cards will display 3 cards per row
 
     left bar will have category and price filters
 -->
@@ -16,6 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="marketplace.css">
     <link rel="stylesheet" href="../LeftSidebar/LeftSidebar.css">
+    <link rel="stylesheet" href="../ResultCards/Cards.css" type="text/css"> 
     <title>Marketplace</title>
 </head>
 <body>
@@ -44,31 +46,54 @@
                 <div>
                   <h3 class="left-bar-header">Category</h3>
                   <div class="checkboxes">
-                    <input type="checkbox" value="Bitcoin" id="check1">
-                    <label for="check1">Bitcoin</label>
+                    <div>
+                      <input type="checkbox" value="Bitcoin" id="check1">
+                      <label for="check1" class="label">Bitcoin</label>
+                    </div>
                     <input type="checkbox" value="Altcoins" id="check2">
-                    <label for="check2">Altcoins</label>
+                    <label for="check2" class="label">Altcoins</label>
                   </div>
                 </div>
             </div>
+            <div class="divider"></div>
             <div class="categoryCoin price">
               <div>
                 <h3 class="left-bar-header">Coin Price</h3>
                 <div class="checkboxes">
                   <form action="">
-                    <input type="checkbox" value="Below $50" id="check3">
-                    <label for="check3">Below $50</label>
-                    <input type="checkbox" value="$50-$100" id="check4">
-                    <label for="check4">$50-$100</label>
-                    <input type="checkbox" value="Above $100" id="check5">
-                    <label for="check5">Above $100</label>
+                    <div>
+                      <input type="checkbox" value="Below $50" id="check3">
+                      <label for="check3" class="label">Below $50</label>
+                    </div>
+                    <div>
+                      <input type="checkbox" value="$50-$100" id="check4">
+                      <label for="check4" class="label">$50-$100</label>
+                    </div>
+                    <div class="finalCheckbox">
+                      <div>
+                        <input type="checkbox" value="Above $100" id="check5">
+                      </div>
+                      <div>
+                        <label for="check5" class="label">Above $100</label>
+                      </div>
+                    </div>
                   </form>
                 </div>
               </div>
             </div>
           </nav>
         </div>
+        <div class="result-cards">
+          <div class="card-display">
+            <template id="hello">
+              <div class="resultCard">
+                PRESENT
+              </div>
+            </template>
+          </div>
+        </div>
       </div>
     </div>
 </body>
+<script src="script.js"></script>
 </html>

@@ -125,4 +125,10 @@ p:last-child {
   -webkit-box-shadow: #DBB11D;
           box-shadow: #DBB11D;
 }
+
+.result-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 /*# sourceMappingURL=marketplace.css.map */
