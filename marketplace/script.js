@@ -25,7 +25,14 @@ checkboxTemp.addEventListener('change', function() {
   }
 })
 
+fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,LTC&data_points=2').then(res => res.json())
+.then((data) => console.log('data: ' + JSON.stringify(data, null, 2)))
+
 //loading the cards on scroll
 //fetch data from api and display on the cards
 //style the cards
 //filter using checkbox
+
+//card contents: price, name of coin, vo
+
+// BTC, lTC, ETH, DOGE, BNB, ADA, USDT, AXS, UNI
