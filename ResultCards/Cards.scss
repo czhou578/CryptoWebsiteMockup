@@ -13,5 +13,6 @@
 .card-display {
   display: grid;
   grid-template-columns: repeat(4, 300px);
-  gap: 1.5rem;
+  gap: 7rem;
+  padding-bottom: 50px;
 }

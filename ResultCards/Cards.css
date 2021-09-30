@@ -15,6 +15,7 @@
   display: grid;
   -ms-grid-columns: (300px)[4];
       grid-template-columns: repeat(4, 300px);
-  gap: 1.5rem;
+  gap: 7rem;
+  padding-bottom: 50px;
 }
 /*# sourceMappingURL=Cards.css.map */

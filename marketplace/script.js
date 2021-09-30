@@ -12,14 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
     document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
     document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
-    // document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
   }
 })
 
 var checkboxTemp = document.getElementById('check3')
-
 checkboxTemp.addEventListener('change', function() {
   if (this.checked) {
     console.log('coliin was here');
   }
 })
+
+//loading the cards on scroll
+//fetch data from api and display on the cards
+//style the cards
+//filter using checkbox
