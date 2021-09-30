@@ -1,8 +1,20 @@
-@charset "UTF-8";
-
 .resultCard {
-  height: 300px;
-  width: 150px;
+  height: 448px;
+  width: 363px;
   background-color: tan;
+  border: 1px solid red;
+  margin-left: 100px;
+}
+
+.result-cards {
+  margin-top: 200px;
+}
+
+.card-display {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (300px)[4];
+      grid-template-columns: repeat(4, 300px);
+  gap: 1.5rem;
 }
 /*# sourceMappingURL=Cards.css.map */

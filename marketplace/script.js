@@ -8,6 +8,18 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log(template);
     let content = template.content
     console.log(content);
-    document.getElementsByClassName('card-display')[0].appendChild(content)
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+    // document.getElementsByClassName('card-display')[0].appendChild(content.cloneNode(true))
+  }
+})
+
+var checkboxTemp = document.getElementById('check3')
+
+checkboxTemp.addEventListener('change', function() {
+  if (this.checked) {
+    console.log('coliin was here');
   }
 })
