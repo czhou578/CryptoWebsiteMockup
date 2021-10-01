@@ -19,28 +19,33 @@ var checkboxTemp = document.getElementById('check3')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var rangeArray = []
 
+// 10/1 -> just clicking on one box filters out, multiple boxes don't work
+
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', function() {
+    
     if (this.checked) {
+
       rangeArray = rangeArray.concat(checkbox.value.match(/\d+/g))
+      rangeArray.sort(function(a, b) {return a-b})
+      console.log('range array: ' + rangeArray);
+      console.log('market cap: ' + allMarketCaps)
       let highestRangeValue = rangeArray[rangeArray.length - 1] //last value
-      console.log(allMarketCaps);
+
+      // console.log(highestRangeValue);
 
       for (let i = 0; i < allMarketCaps.length; i++) {
+        if (allMarketCaps[i] > highestRangeValue && highestRangeValue == 1000) {
+          continue
+        }
+
         if (allMarketCaps[i] > highestRangeValue) {
           let specificCard = document.getElementsByClassName('resultCard')[i]
           specificCard.remove() //removes card
           allMarketCaps.splice(i, 1) //deletes price of specific coin from array
           i--
-          console.log(allMarketCaps);
         }
       }
-
-      // for (showedPrice in allMarketCaps) {
-      //   if (showedPrice > highestRangeValue) {
-      //     //remove price
-      //   }
-      // }
     }
   })
 })
@@ -56,7 +61,7 @@ function showResultsInCard() {
   var cardMaxSupply = document.getElementsByClassName('max-supply')
   var cardInterval = document.getElementsByClassName('interval-hour')
 
-  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,LTC&data_points=2').then(res => res.json())
+  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,DOGE,LTC&data_points=2').then(res => res.json())
   .then((data) => {
     var coinNames = data.config.symbol.split(',') //get rid of double quotes
     
@@ -86,9 +91,6 @@ function showResultsInCard() {
   })
 }
 
-//filter by dollar sign and the hyphen
-//split into array, compare the price with the highest range, if its bigger, then filter it out, otherwise, keep it
-
 //Edge case: 100+, compare with just 100, and if its over, keep it, else, discard
 
 
@@ -96,7 +98,6 @@ showResultsInCard()
 
 //loading the cards on scroll
 //style the cards
-//filter using checkbox
 
 
 // BTC, lTC, ETH, DOGE, BNB, ADA, USDT, AXS, UNI
