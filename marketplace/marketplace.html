@@ -62,19 +62,19 @@
                 <div class="checkboxes">
                   <form action="">
                     <div>
-                      <input type="checkbox" value="Below $50" id="check3">
-                      <label for="check3" class="label">Below $50</label>
+                      <input type="checkbox" value="$0-$50" id="check3">
+                      <label for="check3" class="label">$0-$50</label>
                     </div>
                     <div>
                       <input type="checkbox" value="$50-$100" id="check4">
                       <label for="check4" class="label">$50-$100</label>
                     </div>
-                    <div class="finalCheckbox">
+                    <div class="finalCheckbox"> 
                       <div>
-                        <input type="checkbox" value="Above $100" id="check5">
+                        <input type="checkbox" value="$100+" id="check5">
                       </div>
                       <div>
-                        <label for="check5" class="label">Above $100</label>
+                        <label for="check5" class="label">&#160;$100+</label>
                       </div>
                     </div>
                   </form>
@@ -87,12 +87,15 @@
           <div class="card-display">
             <template id="hello">
               <div class="resultCard">
-                <div>
+
+                <div class="name-div">
                   <h2 class="card-name"></h2>
                 </div>
-                <div>
+
+                <div class="price-div">
                   <h3 class="card-price"></h3>
                 </div>
+
                 <div class="info-container">
                   <div>
                     <h5 class="volume"></h5>
@@ -107,7 +110,6 @@
                     <h5 class="interval-hour"></h5>
                   </div>
                 </div>
-                PRESENT ($50)
               </div>
             </template>
           </div>
