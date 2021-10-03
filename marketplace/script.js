@@ -17,40 +17,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var checkboxTemp = document.getElementById('check3')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
-var rangeArray = []
-
-// 10/1 -> just clicking on one box filters out, multiple boxes don't work
+var rangeArray = [] //array of range objects
+var results = []
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', function() {
     
     if (this.checked) {
 
-      rangeArray = rangeArray.concat(checkbox.value.match(/\d+/g))
+      // rangeArray = rangeArray.concat(checkbox.value.match(/\d+/g))
+      rangeArray.push({"low": checkbox.value.match(/\d+/g)[0], "high": checkbox.value.match(/\d+/g)[1]})
       rangeArray.sort(function(a, b) {return a-b})
-      console.log('range array: ' + rangeArray);
-      console.log('market cap: ' + allMarketCaps)
-      let highestRangeValue = rangeArray[rangeArray.length - 1] //last value
 
-      // console.log(highestRangeValue);
-
-      for (let i = 0; i < allMarketCaps.length; i++) {
-        if (allMarketCaps[i] > highestRangeValue && highestRangeValue == 1000) {
-          continue
-        }
-
-        if (allMarketCaps[i] > highestRangeValue) {
-          let specificCard = document.getElementsByClassName('resultCard')[i]
-          specificCard.remove() //removes card
-          allMarketCaps.splice(i, 1) //deletes price of specific coin from array
-          i--
-        }
-      }
+      console.log('range array: ' + JSON.stringify(rangeArray));
+      // console.log('market prices: ' + allMarketPrices)
+      console.log('filtered: ' + allMarketPrices.filter(filterPrice));
+      results.concat(allMarketPrices.filter(filterPrice))
+      console.log(results);
     }
   })
 })
 
-var allMarketCaps = []; //array of all the prices of displayed coins
+function filterPrice(price) {
+  var did100 = false;
+  var inRange = false;
+  var lowerBound;
+  var upperBound;
+
+  console.log(rangeArray);
+
+  rangeArray.forEach((object) => {
+    if (object.low == 100) {
+      console.log(object.low);
+      did100 = true;
+    }
+
+    if (object.high >= price && object.low <= price) {
+      inRange = true;
+      lowerBound = object.low;
+      upperBound = object.high
+      // return price >= object.low && price <= object.high;      // result.push(price)
+    } else {
+      //delete
+    }
+  })
+
+  if (did100 == true) return price > 100
+  if (inRange == true) return 
+}
+
+var allMarketPrices = []; //array of all the prices of displayed coins
 
 function showResultsInCard() {
   var cards = document.getElementsByClassName('resultCard')
@@ -66,7 +82,7 @@ function showResultsInCard() {
     var coinNames = data.config.symbol.split(',') //get rid of double quotes
     
     for (let i = 0; i < coinNames.length; i++) {
-      allMarketCaps.push(data.data[i].price)
+      allMarketPrices.push(data.data[i].price)
 
       let textNode = document.createTextNode(coinNames[i].slice(1, -1))
       cardName[i].appendChild(textNode)
