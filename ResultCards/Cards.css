@@ -1,9 +1,21 @@
 .resultCard {
   height: 448px;
   width: 363px;
-  background-color: tan;
+  background: -webkit-gradient(linear, left top, right top, color-stop(34%, #e9c909), color-stop(64%, #ffb400));
+  background: linear-gradient(90deg, #e9c909 34%, #ffb400 64%);
   border: 1px solid red;
   margin-left: 100px;
+  border-radius: 6px;
+}
+
+.resultCard:hover {
+  -webkit-box-shadow: 10px 2px white;
+          box-shadow: 10px 2px white;
+  -webkit-transition: -webkit-box-shadow 0.4s ease-in-out;
+  transition: -webkit-box-shadow 0.4s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out;
+  transition: box-shadow 0.4s ease-in-out, -webkit-box-shadow 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 .result-cards {
