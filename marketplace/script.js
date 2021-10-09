@@ -8,6 +8,8 @@ var cardInterval = document.getElementsByClassName('interval-hour')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var numRangeCards;
 
+localStorage.clear()
+
 const supportsTemplate = function() {
   return 'content' in document.createElement('template')
 }
@@ -40,6 +42,7 @@ function handleCheckboxes() {
     checkbox.addEventListener('change', function() {
       
       if (this.checked) {
+        localStorage.setItem('checkbox', checkbox)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
   
@@ -55,23 +58,32 @@ function handleCheckboxes() {
   
             if (allMarketPrices[i].price >= rangeArray[j].low && allMarketPrices[i].price <= rangeArray[j].high) {
               resultSetUnique.add(allMarketPrices[i].coinNameIndex)
-  
             }
-  
           }
         }
         // results.concat(allMarketPrices.filter(filterPrice))
-        console.log(resultSetUnique);
+        console.log(resultSetUnique); 
         let tempArray = Array.from(resultSetUnique)
   
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
         console.log("filtered: " + filteredArray);
-        filteredArray.forEach((elementID) => document.getElementsByClassName('resultCard')[elementID].style.visibility = "hidden")
+        filteredArray.forEach((elementID) => {
+          let tempNode = document.getElementsByClassName('resultCard')[elementID]
+          localStorage.setItem(elementID, tempNode.outerHTML)
+          tempNode.style.display = "none"
+        })
       }
     })
   })
 }
 
+function uncheckedCheckbox() {
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function () {
+      // if (this.checked)
+    })
+  })
+}
 
 var allMarketPrices = []; //array of all the prices of displayed coins
 
@@ -108,7 +120,6 @@ function showResultsInCard() {
 }
 
 //Edge case: 100+, compare with just 100, and if its over, keep it, else, discard
-
 
 showResultsInCard()
 
