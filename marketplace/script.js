@@ -49,7 +49,6 @@ function handleCheckboxes() {
         // console.log('range array: ' + JSON.stringify(rangeArray));
         // console.log('market prices: ' + JSON.stringify(allMarketPrices))
         resultSetUnique = new Set()
-  
         for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
           for (let j = 0; j < rangeArray.length; j++) {
             if (Object.keys(rangeArray[j]).length == 1 && allMarketPrices[i].price > 100) { //100+
