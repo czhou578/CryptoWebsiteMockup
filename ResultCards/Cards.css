@@ -9,8 +9,8 @@
 }
 
 .resultCard:hover {
-  -webkit-box-shadow: 10px 2px white;
-          box-shadow: 10px 2px white;
+  -webkit-box-shadow: 10px 6px white;
+          box-shadow: 10px 6px white;
   -webkit-transition: -webkit-box-shadow 0.4s ease-in-out;
   transition: -webkit-box-shadow 0.4s ease-in-out;
   transition: box-shadow 0.4s ease-in-out;

@@ -1,3 +1,11 @@
+var cards = document.getElementsByClassName('resultCard')
+var cardName = document.getElementsByClassName('card-name')
+var cardPrice = document.getElementsByClassName('card-price')
+var cardVolume= document.getElementsByClassName('volume')
+var cardMktCap = document.getElementsByClassName('market-cap')
+var cardMaxSupply = document.getElementsByClassName('max-supply')
+var cardInterval = document.getElementsByClassName('interval-hour')
+
 const supportsTemplate = function() {
   return 'content' in document.createElement('template')
 }
@@ -18,71 +26,57 @@ document.addEventListener('DOMContentLoaded', function() {
 var checkboxTemp = document.getElementById('check3')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var rangeArray = [] //array of range objects
-var results = []
+var resultSetUnique;
 
 checkboxes.forEach((checkbox) => {
   checkbox.addEventListener('change', function() {
     
     if (this.checked) {
-
-      // rangeArray = rangeArray.concat(checkbox.value.match(/\d+/g))
-      rangeArray.push({"low": checkbox.value.match(/\d+/g)[0], "high": checkbox.value.match(/\d+/g)[1]})
+      rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
       rangeArray.sort(function(a, b) {return a-b})
 
-      console.log('range array: ' + JSON.stringify(rangeArray));
-      // console.log('market prices: ' + allMarketPrices)
-      console.log('filtered: ' + allMarketPrices.filter(filterPrice));
-      results.concat(allMarketPrices.filter(filterPrice))
-      console.log(results);
+      // console.log('range array: ' + JSON.stringify(rangeArray));
+      // console.log('market prices: ' + JSON.stringify(allMarketPrices))
+      resultSetUnique = new Set()
+
+      for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
+        for (let j = 0; j < rangeArray.length; j++) {
+          if (Object.keys(rangeArray[j]).length == 1 && allMarketPrices[i].price > 100) { //100+
+            resultSetUnique.add(allMarketPrices[i].coinNameIndex)
+          }
+
+          if (allMarketPrices[i].price >= rangeArray[j].low && allMarketPrices[i].price <= rangeArray[j].high) {
+            resultSetUnique.add(allMarketPrices[i].coinNameIndex)
+
+          }
+
+        }
+      }
+      // results.concat(allMarketPrices.filter(filterPrice))
+      // console.log(resultSetUnique);
+      let counter = 0;
+      resultSetUnique.forEach((element) => {
+        if (element.coinNameIndex != counter && counter < document.getElementsByClassName("resultCard").length) {
+          let element = document.getElementsByClassName("resultCard")[element.coinNameIndex]
+          element.setAttribute("hidden", true)
+          counter++;
+          console.log(counter);
+        }
+      })
     }
   })
 })
 
-function filterPrice(price) {
-  var did100 = false;
-  var inRange = false;
-  var lowerBound;
-  var upperBound;
-
-  console.log(rangeArray);
-
-  rangeArray.forEach((object) => {
-    if (object.low == 100) {
-      console.log(object.low);
-      did100 = true;
-    }
-
-    if (object.high >= price && object.low <= price) {
-      inRange = true;
-      lowerBound = object.low;
-      upperBound = object.high
-      // return price >= object.low && price <= object.high;      // result.push(price)
-    } else {
-      //delete
-    }
-  })
-
-  if (did100 == true) return price > 100
-  if (inRange == true) return 
-}
-
 var allMarketPrices = []; //array of all the prices of displayed coins
 
 function showResultsInCard() {
-  var cards = document.getElementsByClassName('resultCard')
-  var cardName = document.getElementsByClassName('card-name')
-  var cardPrice = document.getElementsByClassName('card-price')
-  var cardVolume= document.getElementsByClassName('volume')
-  var cardMktCap = document.getElementsByClassName('market-cap')
-  var cardMaxSupply = document.getElementsByClassName('max-supply')
-  var cardInterval = document.getElementsByClassName('interval-hour')
 
   fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,DOGE,LTC&data_points=2').then(res => res.json())
   .then((data) => {
     var coinNames = data.config.symbol.split(',') //get rid of double quotes
     
     for (let i = 0; i < coinNames.length; i++) {
-      allMarketPrices.push(data.data[i].price)
+      allMarketPrices.push({price: data.data[i].price, coinNameIndex: i});
 
       let textNode = document.createTextNode(coinNames[i].slice(1, -1))
       cardName[i].appendChild(textNode)
