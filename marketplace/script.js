@@ -25,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var checkboxTemp = document.getElementById('check3')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
+var resultCardLength = cards.length
+var numRangeCards = [...Array(resultCardLength).keys()]
+console.log(cards.length);
 var rangeArray = [] //array of range objects
 var resultSetUnique;
 
@@ -53,16 +56,11 @@ checkboxes.forEach((checkbox) => {
         }
       }
       // results.concat(allMarketPrices.filter(filterPrice))
-      // console.log(resultSetUnique);
-      let counter = 0;
-      resultSetUnique.forEach((element) => {
-        if (element.coinNameIndex != counter && counter < document.getElementsByClassName("resultCard").length) {
-          let element = document.getElementsByClassName("resultCard")[element.coinNameIndex]
-          element.setAttribute("hidden", true)
-          counter++;
-          console.log(counter);
-        }
-      })
+      console.log(resultSetUnique);
+      let tempArray = Array.from(resultSetUnique)
+
+      let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
+      console.log("filtered: " + filteredArray);
     }
   })
 })
