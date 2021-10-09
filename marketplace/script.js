@@ -5,6 +5,8 @@ var cardVolume= document.getElementsByClassName('volume')
 var cardMktCap = document.getElementsByClassName('market-cap')
 var cardMaxSupply = document.getElementsByClassName('max-supply')
 var cardInterval = document.getElementsByClassName('interval-hour')
+var checkboxes = document.querySelectorAll('input[type=checkbox]')
+var numRangeCards;
 
 const supportsTemplate = function() {
   return 'content' in document.createElement('template')
@@ -23,47 +25,53 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
-var checkboxTemp = document.getElementById('check3')
-var checkboxes = document.querySelectorAll('input[type=checkbox]')
-var resultCardLength = cards.length
-var numRangeCards = [...Array(resultCardLength).keys()]
-console.log(cards.length);
-var rangeArray = [] //array of range objects
-var resultSetUnique;
-
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener('change', function() {
-    
-    if (this.checked) {
-      rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
-      rangeArray.sort(function(a, b) {return a-b})
-
-      // console.log('range array: ' + JSON.stringify(rangeArray));
-      // console.log('market prices: ' + JSON.stringify(allMarketPrices))
-      resultSetUnique = new Set()
-
-      for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
-        for (let j = 0; j < rangeArray.length; j++) {
-          if (Object.keys(rangeArray[j]).length == 1 && allMarketPrices[i].price > 100) { //100+
-            resultSetUnique.add(allMarketPrices[i].coinNameIndex)
-          }
-
-          if (allMarketPrices[i].price >= rangeArray[j].low && allMarketPrices[i].price <= rangeArray[j].high) {
-            resultSetUnique.add(allMarketPrices[i].coinNameIndex)
-
-          }
-
-        }
-      }
-      // results.concat(allMarketPrices.filter(filterPrice))
-      console.log(resultSetUnique);
-      let tempArray = Array.from(resultSetUnique)
-
-      let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
-      console.log("filtered: " + filteredArray);
-    }
-  })
+document.addEventListener('DOMContentLoaded', function () {
+  numRangeCards = [...Array(cards.length).keys()]
+  console.log(numRangeCards);
+  handleCheckboxes()
 })
+
+function handleCheckboxes() {
+
+  var rangeArray = [] //array of range objects that were selected
+  var resultSetUnique;
+  
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener('change', function() {
+      
+      if (this.checked) {
+        rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
+        rangeArray.sort(function(a, b) {return a-b})
+  
+        // console.log('range array: ' + JSON.stringify(rangeArray));
+        // console.log('market prices: ' + JSON.stringify(allMarketPrices))
+        resultSetUnique = new Set()
+  
+        for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
+          for (let j = 0; j < rangeArray.length; j++) {
+            if (Object.keys(rangeArray[j]).length == 1 && allMarketPrices[i].price > 100) { //100+
+              resultSetUnique.add(allMarketPrices[i].coinNameIndex)
+            }
+  
+            if (allMarketPrices[i].price >= rangeArray[j].low && allMarketPrices[i].price <= rangeArray[j].high) {
+              resultSetUnique.add(allMarketPrices[i].coinNameIndex)
+  
+            }
+  
+          }
+        }
+        // results.concat(allMarketPrices.filter(filterPrice))
+        console.log(resultSetUnique);
+        let tempArray = Array.from(resultSetUnique)
+  
+        let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
+        console.log("filtered: " + filteredArray);
+        filteredArray.forEach((elementID) => document.getElementsByClassName('resultCard')[elementID].style.visibility = "hidden")
+      }
+    })
+  })
+}
+
 
 var allMarketPrices = []; //array of all the prices of displayed coins
 
