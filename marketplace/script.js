@@ -42,7 +42,7 @@ function handleCheckboxes() {
     checkbox.addEventListener('change', function() {
       
       if (this.checked) {
-        localStorage.setItem('checkbox', checkbox)
+        localStorage.setItem('checkbox', checkbox.value)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
   
@@ -60,7 +60,6 @@ function handleCheckboxes() {
             }
           }
         }
-        // results.concat(allMarketPrices.filter(filterPrice))
         console.log(resultSetUnique); 
         let tempArray = Array.from(resultSetUnique)
   
@@ -76,10 +75,16 @@ function handleCheckboxes() {
   })
 }
 
+document.addEventListener('DOMContentLoaded', uncheckedCheckbox)
+
 function uncheckedCheckbox() {
+  console.log("colin was here");
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function () {
-      // if (this.checked)
+      console.log(localStorage.getItem('checkbox'));
+      if (this.checked && checkbox.value === localStorage.getItem('checkbox')) {
+        localStorage.removeItem('checkbox')
+      }
     })
   })
 }
