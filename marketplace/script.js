@@ -8,7 +8,7 @@ var cardInterval = document.getElementsByClassName('interval-hour')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var numRangeCards;
 
-localStorage.clear()
+sessionStorage.clear()
 
 const supportsTemplate = function() {
   return 'content' in document.createElement('template')
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-  numRangeCards = [...Array(cards.length).keys()]
-  console.log(numRangeCards);
+  numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
+  // console.log(numRangeCards);
   handleCheckboxes()
 })
 
@@ -42,7 +42,7 @@ function handleCheckboxes() {
     checkbox.addEventListener('change', function() {
       
       if (this.checked) {
-        localStorage.setItem('checkbox', checkbox.value)
+        sessionStorage.setItem('checkbox', checkbox.value)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
   
@@ -64,10 +64,11 @@ function handleCheckboxes() {
         let tempArray = Array.from(resultSetUnique)
   
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
-        console.log("filtered: " + filteredArray);
-        filteredArray.forEach((elementID) => {
+        // console.log("filtered: " + filteredArray);
+
+        filteredArray.forEach((elementID) => { //filtered array contings indexes of elements that are not going to be shown
           let tempNode = document.getElementsByClassName('resultCard')[elementID]
-          localStorage.setItem(elementID, tempNode.outerHTML)
+          sessionStorage.setItem(elementID, JSON.stringify(tempNode.outerHTML))
           tempNode.style.display = "none"
         })
       }
@@ -78,12 +79,14 @@ function handleCheckboxes() {
 document.addEventListener('DOMContentLoaded', uncheckedCheckbox)
 
 function uncheckedCheckbox() {
-  console.log("colin was here");
+  
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function () {
-      console.log(localStorage.getItem('checkbox'));
-      if (this.checked && checkbox.value === localStorage.getItem('checkbox')) {
-        localStorage.removeItem('checkbox')
+
+      if (!this.checked && checkbox.value === sessionStorage.getItem('checkbox')) {
+        let fragment = JSON.parse(sessionStorage.getItem(0))
+        // console.log(JSON.parse(test));
+        document.getElementsByClassName('card-display')[0].appendChild(fragment)
       }
     })
   })
@@ -118,7 +121,6 @@ function showResultsInCard() {
       let intervalNode = document.createTextNode("Interval: Hourly")
       cardInterval[i].appendChild(intervalNode)
     }
-
     console.log(JSON.stringify(data, null, 2))
   })
 }
