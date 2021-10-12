@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
       clone = content.cloneNode(true)
       clone.class = 'resultCard'
       document.getElementsByClassName('card-display')[0].appendChild(clone)
+      sessionStorage.setItem(i, JSON.stringify(cards[i].outerHTML))
     }
   }
 })
@@ -49,6 +50,7 @@ function handleCheckboxes() {
         // console.log('range array: ' + JSON.stringify(rangeArray));
         // console.log('market prices: ' + JSON.stringify(allMarketPrices))
         resultSetUnique = new Set()
+
         for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
           for (let j = 0; j < rangeArray.length; j++) {
             if (Object.keys(rangeArray[j]).length == 1 && allMarketPrices[i].price > 100) { //100+
@@ -61,14 +63,13 @@ function handleCheckboxes() {
           }
         }
         console.log(resultSetUnique); 
-        let tempArray = Array.from(resultSetUnique)
+        let tempArray = Array.from(resultSetUnique) //create temporary array from set
   
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
         // console.log("filtered: " + filteredArray);
 
         filteredArray.forEach((elementID) => { //filtered array contings indexes of elements that are not going to be shown
           let tempNode = document.getElementsByClassName('resultCard')[elementID]
-          sessionStorage.setItem(elementID, JSON.stringify(tempNode.outerHTML))
           tempNode.style.display = "none"
         })
       }
@@ -79,14 +80,15 @@ function handleCheckboxes() {
 document.addEventListener('DOMContentLoaded', uncheckedCheckbox)
 
 function uncheckedCheckbox() {
-  
+
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function () {
-
       if (!this.checked && checkbox.value === sessionStorage.getItem('checkbox')) {
-        let fragment = JSON.parse(sessionStorage.getItem(0))
-        // console.log(JSON.parse(test));
-        document.getElementsByClassName('card-display')[0].appendChild(fragment)
+        for (let i = 0; i < cards.length; i++) {
+          if (cards[i].style.display === 'none') {
+            cards[i].style.removeProperty('display')
+          }
+        }
       }
     })
   })
