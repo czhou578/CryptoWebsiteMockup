@@ -62,11 +62,11 @@ function handleCheckboxes() {
             }
           }
         }
-        console.log(resultSetUnique); 
+
+        // console.log(resultSetUnique); 
         let tempArray = Array.from(resultSetUnique) //create temporary array from set
   
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
-        // console.log("filtered: " + filteredArray);
 
         filteredArray.forEach((elementID) => { //filtered array contings indexes of elements that are not going to be shown
           let tempNode = document.getElementsByClassName('resultCard')[elementID]
@@ -98,7 +98,7 @@ var allMarketPrices = []; //array of all the prices of displayed coins
 
 function showResultsInCard() {
 
-  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,DOGE,LTC&data_points=2').then(res => res.json())
+  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,DOGE,LTC,XRP,ADA,DOT,BNB,SOL,USDC&data_points=2').then(res => res.json())
   .then((data) => {
     var coinNames = data.config.symbol.split(',') //get rid of double quotes
     
