@@ -8,6 +8,8 @@ var cardInterval = document.getElementsByClassName('interval-hour')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var numRangeCards;
 
+console.log(checkboxes);
+
 sessionStorage.clear()
 
 const supportsTemplate = function() {
@@ -28,14 +30,24 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
-document.addEventListener('DOMContentLoaded', function () {
-  numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
-  // console.log(numRangeCards);
-  handleCheckboxes()
-})
+document.addEventListener('DOMContentLoaded', handleCoinTypeCheckboxes)
 
-function handleCheckboxes() {
+function handleCoinTypeCheckboxes() {
+  console.log(checkboxes.item(0));
+  if (checkboxes.item(0).checked || checkboxes.item(1).checked) {
+    console.log('colin was here');
+  } else {
+    numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
+    handlePriceCheckboxes()
 
+  }
+}
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   // console.log(numRangeCards);
+// })
+
+function handlePriceCheckboxes() {
   var rangeArray = [] //array of range objects that were selected
   var resultSetUnique;
   
@@ -63,7 +75,6 @@ function handleCheckboxes() {
           }
         }
 
-        // console.log(resultSetUnique); 
         let tempArray = Array.from(resultSetUnique) //create temporary array from set
   
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
