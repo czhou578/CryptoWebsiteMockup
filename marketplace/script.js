@@ -30,22 +30,21 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
-document.addEventListener('DOMContentLoaded', handleCoinTypeCheckboxes)
+// document.addEventListener('DOMContentLoaded', handleCoinTypeCheckboxes)
 
-function handleCoinTypeCheckboxes() {
-  console.log(checkboxes.item(0));
-  if (checkboxes.item(0).checked || checkboxes.item(1).checked) {
-    console.log('colin was here');
-  } else {
-    numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
-    handlePriceCheckboxes()
+// function handleCoinTypeCheckboxes() {
+//   console.log(checkboxes.item(0));
+//   if (checkboxes.item(0).checked || checkboxes.item(1).checked) {
+//     console.log('colin was here');
+//   } else {
+//     numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
+    
+//   }
+// }
 
-  }
-}
-
-// document.addEventListener('DOMContentLoaded', function () {
-//   // console.log(numRangeCards);
-// })
+document.addEventListener('DOMContentLoaded', function () {
+  handlePriceCheckboxes()
+})
 
 function handlePriceCheckboxes() {
   var rangeArray = [] //array of range objects that were selected
@@ -54,7 +53,7 @@ function handlePriceCheckboxes() {
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function() {
       
-      if (this.checked) {
+      if (this.checked && this.defaultValue != "Bitcoin" && this.defaultValue != "Altcoins") {
         sessionStorage.setItem('checkbox', checkbox.value)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
@@ -75,15 +74,31 @@ function handlePriceCheckboxes() {
           }
         }
 
-        let tempArray = Array.from(resultSetUnique) //create temporary array from set
-  
+        let tempArray =   Array.from(resultSetUnique) //create temporary array from set
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
 
         filteredArray.forEach((elementID) => { //filtered array contings indexes of elements that are not going to be shown
           let tempNode = document.getElementsByClassName('resultCard')[elementID]
           tempNode.style.display = "none"
         })
+
+      } else if (this.checked && this.defaultValue == "Bitcoin") {
+        for (let j in cards) {
+          if (j != 0) {
+            cards[j].style.display = "none";
+          }
+        }
+
+      } else if (this.checked && this.defaultValue == "Altcoins") {
+
+        for (let j in cards) {
+          if (j == 0) {
+            cards[j].style.display = "none"
+          }
+        }
       }
+
+
     })
   })
 }
@@ -94,6 +109,7 @@ function uncheckedCheckbox() {
 
   checkboxes.forEach((checkbox) => {
     checkbox.addEventListener('change', function () {
+
       if (!this.checked && checkbox.value === sessionStorage.getItem('checkbox')) {
         for (let i = 0; i < cards.length; i++) {
           if (cards[i].style.display === 'none') {
