@@ -42,9 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //   }
 // }
 
-document.addEventListener('DOMContentLoaded', function () {
-  handlePriceCheckboxes()
-})
+document.addEventListener('DOMContentLoaded', handlePriceCheckboxes)
 
 function handlePriceCheckboxes() {
   var rangeArray = [] //array of range objects that were selected
@@ -74,7 +72,7 @@ function handlePriceCheckboxes() {
           }
         }
 
-        let tempArray =   Array.from(resultSetUnique) //create temporary array from set
+        let tempArray = Array.from(resultSetUnique) //create temporary array from set
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
 
         filteredArray.forEach((elementID) => { //filtered array contings indexes of elements that are not going to be shown
@@ -83,6 +81,8 @@ function handlePriceCheckboxes() {
         })
 
       } else if (this.checked && this.defaultValue == "Bitcoin") {
+        sessionStorage.setItem('checkbox', checkbox.value)
+
         for (let j in cards) {
           if (j != 0) {
             cards[j].style.display = "none";
@@ -90,9 +90,11 @@ function handlePriceCheckboxes() {
         }
 
       } else if (this.checked && this.defaultValue == "Altcoins") {
+        sessionStorage.setItem('checkbox', checkbox.value)
 
         for (let j in cards) {
           if (j == 0) {
+            console.log(cards[j]);
             cards[j].style.display = "none"
           }
         }
