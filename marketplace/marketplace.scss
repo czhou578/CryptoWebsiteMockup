@@ -105,6 +105,13 @@ body {
 
   .result-body {
     display: flex;
+    // flex-wrap: wrap;
+  }
+
+  @media screen and(max-width: 70vw) {
+    .taskbar {
+      width: min(50%, 500px);
+    }
   }
 
   
