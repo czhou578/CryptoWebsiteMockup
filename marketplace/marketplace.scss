@@ -105,12 +105,17 @@ body {
 
   .result-body {
     display: flex;
-    // flex-wrap: wrap;
   }
 
-  @media screen and(max-width: 70vw) {
-    .taskbar {
-      width: min(50%, 500px);
+  // @media screen and (min-width: 50vw) and (max-width: 80vw) {
+  //   .selections {
+  //     color: red;
+  //   }
+  // }
+
+  @media screen and (min-width: 50vw) {
+    .selections {
+      color: red;
     }
   }
 

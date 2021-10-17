@@ -131,4 +131,10 @@ p:last-child {
   display: -ms-flexbox;
   display: flex;
 }
+
+@media screen and (min-width: 50vw) {
+  .selections {
+    color: red;
+  }
+}
 /*# sourceMappingURL=marketplace.css.map */
