@@ -64,4 +64,65 @@
 .volume, .market-cap, .max-supply, .interval-hour {
   font-size: 20px;
 }
+
+@media (min-width: 1100px) and (max-width: 1450px) {
+  .card-display {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (350px)[3];
+        grid-template-columns: repeat(3, 350px);
+    gap: 3rem;
+    padding-bottom: 50px;
+  }
+  .resultCard {
+    height: 548px;
+    width: 363px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(34%, #e9c909), color-stop(64%, #ffb400));
+    background: linear-gradient(90deg, #e9c909 34%, #ffb400 64%);
+    border: 1px solid red;
+    margin-left: 100px;
+    border-radius: 6px;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 1100px) {
+  .card-display {
+    -ms-grid-columns: (350px)[2];
+        grid-template-columns: repeat(2, 350px);
+    gap: 3rem;
+    padding-bottom: 50px;
+  }
+}
+
+@media (min-width: 0px) and (max-width: 650px) {
+  .card-display {
+    -ms-grid-columns: (150px)[1];
+        grid-template-columns: repeat(1, 150px);
+    gap: 3rem;
+    padding-bottom: 50px;
+  }
+  .resultCard {
+    height: 648px;
+    width: 563px;
+    background: -webkit-gradient(linear, left top, right top, color-stop(34%, #e9c909), color-stop(64%, #ffb400));
+    background: linear-gradient(90deg, #e9c909 34%, #ffb400 64%);
+    border: 1px solid red;
+    margin-left: 100px;
+    border-radius: 6px;
+  }
+  .card-name {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 40px;
+    line-height: normal;
+    margin-bottom: 50px;
+  }
+  .price-div > h3 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 45px;
+    margin-bottom: -5px;
+  }
+  .volume, .market-cap, .max-supply, .interval-hour {
+    font-size: 40px;
+  }
+}
 /*# sourceMappingURL=Cards.css.map */
