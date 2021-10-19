@@ -131,4 +131,10 @@ p:last-child {
   display: -ms-flexbox;
   display: flex;
 }
+
+@media only screen and (mid-width: 1000px) and (max-width: 1620px) {
+  .selections {
+    margin-right: 50px;
+  }
+}
 /*# sourceMappingURL=marketplace.css.map */

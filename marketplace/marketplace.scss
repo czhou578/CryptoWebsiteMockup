@@ -107,16 +107,9 @@ body {
     display: flex;
   }
 
-  // @media screen and (min-width: 50vw) and (max-width: 80vw) {
-  //   .selections {
-  //     color: red;
-  //   }
-  // }
-
-  // @media screen and (min-width: 50vw) {
-  //   .selections {
-  //     color: red;
-  //   }
-  // }
-
+@media only screen and (mid-width: 1000px) and (max-width: 1620px) {
+  .selections {
+    margin-right: 50px;
+  }
+}
   
