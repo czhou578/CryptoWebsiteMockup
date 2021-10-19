@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
 //   if (checkboxes.item(0).checked || checkboxes.item(1).checked) {
 //     console.log('colin was here');
 //   } else {
-//     numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
     
 //   }
 // }
@@ -52,6 +51,7 @@ function handlePriceCheckboxes() {
     checkbox.addEventListener('change', function() {
       
       if (this.checked && this.defaultValue != "Bitcoin" && this.defaultValue != "Altcoins") {
+        numRangeCards = [...Array(cards.length).keys()] //0...9, all integers between
         sessionStorage.setItem('checkbox', checkbox.value)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
