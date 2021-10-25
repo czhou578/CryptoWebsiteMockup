@@ -30,17 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 })
 
-// document.addEventListener('DOMContentLoaded', handleCoinTypeCheckboxes)
-
-// function handleCoinTypeCheckboxes() {
-//   console.log(checkboxes.item(0));
-//   if (checkboxes.item(0).checked || checkboxes.item(1).checked) {
-//     console.log('colin was here');
-//   } else {
-    
-//   }
-// }
-
 document.addEventListener('DOMContentLoaded', handlePriceCheckboxes)
 
 function handlePriceCheckboxes() {
@@ -56,8 +45,6 @@ function handlePriceCheckboxes() {
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
   
-        // console.log('range array: ' + JSON.stringify(rangeArray));
-        // console.log('market prices: ' + JSON.stringify(allMarketPrices))
         resultSetUnique = new Set()
 
         for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
