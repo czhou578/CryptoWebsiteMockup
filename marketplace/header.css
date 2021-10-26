@@ -36,8 +36,9 @@ body {
 }
 
 .taskbar a.logo {
-  font-size: 25px;
+  font-size: 35px;
   font-weight: bold;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .taskbar a:hover {

@@ -114,10 +114,9 @@ var allMarketPrices = []; //array of all the prices of displayed coins
 
 function showResultsInCard() {
 
-  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=BTC,DOGE,LTC,XRP,ADA,DOT,BNB,SOL,USDC&data_points=2').then(res => res.json())
+  fetch('https://api.lunarcrush.com/v2?data=assets&key=gdqfs8abaucjii0k5tfyve&symbol=ADA,BNB,BTC,DOGE,DOT,LTC,SOL,USDC,XRP&data_points=2').then(res => res.json())
   .then((data) => {
     var coinNames = data.config.symbol.split(',') //get rid of double quotes
-    
     for (let i = 0; i < coinNames.length; i++) {
       allMarketPrices.push({price: data.data[i].price, coinNameIndex: i});
 
@@ -139,7 +138,6 @@ function showResultsInCard() {
       let intervalNode = document.createTextNode("Interval: Hourly")
       cardInterval[i].appendChild(intervalNode)
     }
-    console.log(JSON.stringify(data, null, 2))
   })
 }
 
