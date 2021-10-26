@@ -45,7 +45,7 @@ body {
 }
 
 .taskbar a.active {
-  background-color: dodgerblue;
+  background-color: #5c5b11;
   color: #c77529;
 }
 
