@@ -24,16 +24,14 @@
   padding-bottom: 50px;
 }
 
-.name-div {
-  margin-left: 40%;
-}
-
-.price-div {
-  margin-left: 20%;
+.top {
+  display: flex;
+  align-items:flex-end;
 }
 
 .info-container {
   margin-top: 170px;
+  margin-left: 20px;
   display: grid;
   grid-template-columns: auto auto;
   gap: 1.5rem;
@@ -44,6 +42,7 @@
   font-size: 30px;
   line-height: normal;
   margin-bottom: 50px;
+  color: purple;
 }
 
 .price-div > h3 {

@@ -31,16 +31,18 @@
   padding-bottom: 50px;
 }
 
-.name-div {
-  margin-left: 40%;
-}
-
-.price-div {
-  margin-left: 20%;
+.top {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .info-container {
   margin-top: 170px;
+  margin-left: 20px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto auto;
@@ -53,6 +55,7 @@
   font-size: 30px;
   line-height: normal;
   margin-bottom: 50px;
+  color: purple;
 }
 
 .price-div > h3 {
