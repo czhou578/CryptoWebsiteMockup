@@ -15,8 +15,7 @@ body {
 .timeline {
   position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  background-color: tan;
+  margin: 50px 450px auto;
 }
 
 .timeline::after {
@@ -35,7 +34,6 @@ body {
   background-color: inherit;
   padding: 10px 30px;
   position: relative;
-  border: 1px solid red;
 }
 
 .container::after {
@@ -62,7 +60,7 @@ body {
   top: 22px;
   width: 0;
   z-index: 1;
-  right: 30px;
+  right: 20px;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
@@ -79,10 +77,10 @@ body {
   top: 22px;
   width: 0;
   z-index: 1;
-  right: 30px;
+  left: 20px;
   border: medium solid white;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+  border-color: transparent white transparent transparent;
+  border-width: 10px 10px 10px 0;
 }
 
 .right::after {

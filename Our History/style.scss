@@ -5,10 +5,10 @@
   top: 22px;
   width: 0;
   z-index: 1;
-  right: 30px;
-  border: medium solid white;
+  right: 20px;
+  border: medium solid rgb(255, 255, 255);
   border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent white;
+  border-color: transparent transparent transparent rgb(255, 255, 255);
 }
 
 * {
@@ -27,8 +27,7 @@ body {
 .timeline {
   position: relative;
   max-width: 1200px;
-  margin: 0 auto;
-  background-color: tan;
+  margin: 50px 450px auto;
 }
 
 .timeline::after {
@@ -47,7 +46,6 @@ body {
   background-color: inherit;
   padding: 10px 30px;
   position: relative;
-  border: 1px solid red;
 
   &::after {
     content: '';
@@ -76,7 +74,17 @@ body {
   left: 50%;
 
   &::before {
-    @include arrowStyle();
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 20px;
+    border: medium solid rgb(255, 255, 255);
+    border-color: transparent rgb(255, 255, 255) transparent transparent;
+    border-width: 10px 10px 10px 0;
+
   }
 
   &::after {
