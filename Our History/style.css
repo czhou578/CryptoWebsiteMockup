@@ -14,19 +14,19 @@ body {
 
 .timeline {
   position: relative;
-  max-width: 1200px;
   margin: 50px 450px auto;
+  max-width: 1200px;
 }
 
 .timeline::after {
   content: '';
   position: absolute;
-  width: 7px;
-  background-color: white;
   top: 0;
   bottom: 0;
   left: 49.8%;
   margin-left: -3px;
+  width: 7px;
+  background-color: white;
 }
 
 .container {
@@ -55,15 +55,15 @@ body {
 
 .left::before {
   content: " ";
-  height: 0;
   position: absolute;
   top: 22px;
-  width: 0;
-  z-index: 1;
   right: 20px;
+  height: 0;
+  width: 0;
   border: medium solid white;
   border-width: 10px 0 10px 10px;
   border-color: transparent transparent transparent white;
+  z-index: 1;
 }
 
 .right {
