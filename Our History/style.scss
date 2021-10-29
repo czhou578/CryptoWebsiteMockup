@@ -97,6 +97,12 @@ body {
   background-color: white;
   position: relative;
   border-radius: 6px;
+  text-align: center;
+
+  > h1 {
+    font-size: 30px;
+    color: rgb(117, 50, 23);
+  }
 }
 
 h2 {

@@ -92,6 +92,12 @@ body {
   background-color: white;
   position: relative;
   border-radius: 6px;
+  text-align: center;
+}
+
+.content > h1 {
+  font-size: 30px;
+  color: #753217;
 }
 
 h2 {
