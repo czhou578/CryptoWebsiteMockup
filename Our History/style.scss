@@ -109,6 +109,14 @@ h2 {
   color: blue !important;
 }
 
+pre {
+  font-size: 15px;
+  line-height: normal;
+  font-weight: 200;
+  white-space: pre-line;
+  text-align: center;
+}
+
 @media screen and (max-width: 600px) {
   .timeline::after {
     left: 31px;
