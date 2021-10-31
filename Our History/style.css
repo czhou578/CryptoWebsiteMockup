@@ -10,6 +10,7 @@ body {
 
 .timeline-display {
   height: 90vh;
+  padding-bottom: 50px;
 }
 
 .timeline {
