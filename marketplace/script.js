@@ -10,13 +10,18 @@ var numRangeCards;
 
 console.log(checkboxes);
 
-sessionStorage.clear()
+sessionStorage.clear() 
 
 const supportsTemplate = function() {
   return 'content' in document.createElement('template')
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+/*
+  allows for the template to be cloned so that card component
+  can be reusable.
+
+*/
+document.addEventListener('DOMContentLoaded', function() { 
   if (supportsTemplate()) {
     let template = document.getElementById('hello')
     let content = template.content
@@ -32,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener('DOMContentLoaded', handlePriceCheckboxes)
 
+ 
 function handlePriceCheckboxes() {
   var rangeArray = [] //array of range objects that were selected
   var resultSetUnique;
@@ -141,12 +147,6 @@ function showResultsInCard() {
   })
 }
 
-//Edge case: 100+, compare with just 100, and if its over, keep it, else, discard
-
 showResultsInCard()
-
-//loading the cards on scroll
-//style the cards
-
 
 // BTC, lTC, ETH, DOGE, BNB, ADA, USDT, AXS, UNI
