@@ -1,67 +1,8 @@
-* {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-*::before, *::after {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 .container {
   color: black;
 }
 
-body {
-  overflow-x: hidden;
-  background-color: black;
-}
-
-.taskbar {
-  overflow: hidden;
-  background-color: black;
-  padding: 20px 10px;
-}
-
-.taskbar a {
-  float: left;
-  color: white;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 20px;
-  line-height: 20px;
-  border-radius: 3px;
-  margin-right: 30px;
-}
-
-.taskbar a.logo {
-  font-size: 35px;
-  font-weight: bold;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.taskbar a:hover {
-  color: #c5f126;
-}
-
-.taskbar a.active {
-  background-color: #5c5b11;
-  color: #c77529;
-}
-
-.taskbar img {
-  height: 50px;
-  width: 50px;
-  margin-right: 25px;
-  cursor: pointer;
-}
-
-.taskbar-right {
-  float: right;
+.tradingview-widget-container {
+  position: absolute;
 }
 /*# sourceMappingURL=explores.css.map */

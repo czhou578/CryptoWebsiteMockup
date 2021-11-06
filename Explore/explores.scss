@@ -1,66 +1,9 @@
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  
-  &::before, &::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-}
-
 .container {
   color: black;
 }
 
-body {
-  overflow-x: hidden;
-  background-color: black;
-}
-
-.taskbar {
-  overflow: hidden;
-  background-color: black;
-  padding: 20px 10px;
-
-  a {
-      float: left;
-      color: white;
-      text-align: center;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 20px;
-      line-height: 20px;
-      border-radius: 3px;
-      margin-right: 30px;
-  }
-
-  a.logo {
-      font-size: 35px;
-      font-weight: bold;
-      font-family: 'Courier New', Courier, monospace;
-  }
-
-  a:hover {
-      color: rgb(197, 241, 38); 
-  }
-
-  a.active {
-      background-color: rgb(92, 91, 17);
-      color: rgb(199, 117, 41);
-  }
-
-  img {
-    height: 50px;
-    width: 50px;
-    margin-right: 25px;
-    cursor: pointer;        
-  }
-}
-
-.taskbar-right {
-  float: right;
+.tradingview-widget-container {
+  position: absolute;
+  
 }
 
