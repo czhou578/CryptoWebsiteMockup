@@ -8,8 +8,6 @@ var cardInterval = document.getElementsByClassName('interval-hour')
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
 var numRangeCards;
 
-console.log(checkboxes);
-
 sessionStorage.clear() 
 
 const supportsTemplate = function() {
@@ -50,8 +48,10 @@ function handlePriceCheckboxes() {
         sessionStorage.setItem('checkbox', checkbox.value)
         rangeArray.push({low: checkbox.value.match(/\d+/g)[0], high: checkbox.value.match(/\d+/g)[1]})
         rangeArray.sort(function(a, b) {return a-b})
-  
-        resultSetUnique = new Set()
+
+        resultSetUnique = new Set() //is creating new set properly
+        console.log(rangeArray);
+        // console.log(resultSetUnique);
 
         for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
           for (let j = 0; j < rangeArray.length; j++) {
@@ -65,6 +65,8 @@ function handlePriceCheckboxes() {
           }
         }
 
+        console.log(resultSetUnique);
+
         let tempArray = Array.from(resultSetUnique) //create temporary array from set
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
 
@@ -73,11 +75,15 @@ function handlePriceCheckboxes() {
           tempNode.style.display = "none"
         })
 
+        rangeArray = []
+
       } else if (this.checked && this.defaultValue == "Bitcoin") {
         sessionStorage.setItem('checkbox', checkbox.value)
+        console.log("colin");
+        console.log(cards);
 
-        for (let j in cards) {
-          if (j != 0) {
+        for (let j in cards) { //hard coded in
+          if (j != 2) {
             cards[j].style.display = "none";
           }
         }
@@ -85,14 +91,13 @@ function handlePriceCheckboxes() {
       } else if (this.checked && this.defaultValue == "Altcoins") {
         sessionStorage.setItem('checkbox', checkbox.value)
 
-        for (let j in cards) {
-          if (j == 0) {
+        for (let j in cards) { //hard coded in 
+          if (j == 2) {
             console.log(cards[j]);
             cards[j].style.display = "none"
           }
         }
       }
-
 
     })
   })
