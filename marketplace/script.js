@@ -65,8 +65,6 @@ function handlePriceCheckboxes() {
           }
         }
 
-        console.log(resultSetUnique);
-
         let tempArray = Array.from(resultSetUnique) //create temporary array from set
         let filteredArray = numRangeCards.filter(value => !tempArray.includes(value))
 
@@ -79,8 +77,6 @@ function handlePriceCheckboxes() {
 
       } else if (this.checked && this.defaultValue == "Bitcoin") {
         sessionStorage.setItem('checkbox', checkbox.value)
-        console.log("colin");
-        console.log(cards);
 
         for (let j in cards) { //hard coded in
           if (j != 2) {
