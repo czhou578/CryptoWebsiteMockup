@@ -13,29 +13,42 @@
   margin-top: 100px;
   margin-left: 30%;
 
-  > label {
-    color: white;
-    font-size: 30px;
-    font-weight: 300;
-    margin-right: 20px;
+  > form {
+    > label {
+      color: white;
+      font-size: 30px;
+      font-weight: 300;
+      margin-right: 20px;
+    }
+  
+    > input {
+      margin-right: 20px;
+      height: 55px;
+      width: 450px;
+      font-size: 20px;
+      outline: none;
+    }
+  
+    > button {
+      outline: none;
+      font-size: large;
+      padding: 1rem 1.25em;
+      background-color: lightgreen;
+      cursor: pointer;
+    }
   }
+}
 
-  > input {
-    margin-right: 20px;
-    height: 55px;
-    width: 450px;
-    font-size: 20px;
-    outline: none;
-  }
+.response:nth-child(odd) {
+  font-size: 25px;
+  padding: 10px 0px 10px 10px;
+  background-color: lightblue;
+}
 
-  > button {
-    outline: none;
-    font-size: large;
-    padding: 1rem 1.25em;
-    background-color: lightgreen;
-    cursor: pointer;
-
-  }
+.response:nth-child(even) {
+  font-size: 25px;
+  padding: 10px 0px 10px 10px;
+  background-color: lightyellow;  
 }
 
 // .tradingview-widget-container {

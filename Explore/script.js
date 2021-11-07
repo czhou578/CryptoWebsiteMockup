@@ -1,6 +1,7 @@
 const button = document.querySelector("button")
 const input = document.querySelector("input")
 const form = document.querySelector("form")
+const chatBox = document.querySelector(".chat-box")
 
 form.addEventListener('submit', function(e) {
   e.preventDefault()
@@ -13,8 +14,9 @@ form.addEventListener('submit', function(e) {
   input.value = ""
 })
 
-function displayMessage() {
+function displayMessage(value) {
   const div = document.createElement("div")
-  div.textContent = inputValue;
-  
+  div.classList.add("response")
+  div.textContent = value;
+  chatBox.append(div)
 }

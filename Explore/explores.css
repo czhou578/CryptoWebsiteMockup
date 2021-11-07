@@ -14,14 +14,14 @@
   margin-left: 30%;
 }
 
-.input-box > label {
+.input-box > form > label {
   color: white;
   font-size: 30px;
   font-weight: 300;
   margin-right: 20px;
 }
 
-.input-box > input {
+.input-box > form > input {
   margin-right: 20px;
   height: 55px;
   width: 450px;
@@ -29,11 +29,23 @@
   outline: none;
 }
 
-.input-box > button {
+.input-box > form > button {
   outline: none;
   font-size: large;
   padding: 1rem 1.25em;
   background-color: lightgreen;
   cursor: pointer;
+}
+
+.response:nth-child(odd) {
+  font-size: 25px;
+  padding: 10px 0px 10px 10px;
+  background-color: lightblue;
+}
+
+.response:nth-child(even) {
+  font-size: 25px;
+  padding: 10px 0px 10px 10px;
+  background-color: lightyellow;
 }
 /*# sourceMappingURL=explores.css.map */
