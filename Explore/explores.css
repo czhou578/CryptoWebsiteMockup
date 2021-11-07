@@ -2,9 +2,38 @@
   color: black;
 }
 
-.tradingview-widget-container {
-  position: absolute;
-  top: 107px;
-  left: 30px;
+.chat-box {
+  height: 800px;
+  width: 800px;
+  background-color: tan;
+  margin-left: 30%;
+}
+
+.input-box {
+  margin-top: 100px;
+  margin-left: 30%;
+}
+
+.input-box > label {
+  color: white;
+  font-size: 30px;
+  font-weight: 300;
+  margin-right: 20px;
+}
+
+.input-box > input {
+  margin-right: 20px;
+  height: 55px;
+  width: 450px;
+  font-size: 20px;
+  outline: none;
+}
+
+.input-box > button {
+  outline: none;
+  font-size: large;
+  padding: 1rem 1.25em;
+  background-color: lightgreen;
+  cursor: pointer;
 }
 /*# sourceMappingURL=explores.css.map */
