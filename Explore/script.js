@@ -5,10 +5,12 @@ const form = document.querySelector("form")
 const chatBox = document.querySelector(".chat-box")
 
 form.addEventListener('submit', function(e) {
+  const emptyString = "^\\s+$";
   e.preventDefault()
   const inputValue = input.value.toLowerCase().replace(/[^\w\s\d]/gi, "");
 
-  if (input === "") return;
+  if (emptyString.test(inputValue)) return;
+  displayMessage(inputValue)
   output(inputValue)
 
   input.value = ""
@@ -21,10 +23,10 @@ function displayMessage(value) {
   chatBox.append(div)
 }
 
-const trigger = [
-  ["hi", "hello", "hey"]
-  ["bitcoin!", "btc!", "BTC!", "Bitcoin!"],
-  ["ethereum!", "eth!", "ETH!", "Ethereum!"],
+const triggerList = [
+  ["hi", "hello", "hey"],
+  ["bitcoin", "btc", "BTC", "Bitcoin"],
+  ["ethereum", "eth", "ETH", "Ethereum"],
   // ["ethereum!", "eth!", "ETH!", "Ethereum!"],
   // ["ethereum!", "eth!", "ETH!", "Ethereum!"],
   // ["ethereum!", "eth!", "ETH!", "Ethereum!"],
@@ -32,7 +34,7 @@ const trigger = [
   // ["ethereum!", "eth!", "ETH!", "Ethereum!"],
 ]
 
-const reply = [
+const replyList = [
   ["hi", "hello", "hey!"],
   ["Here is the price chart of Bitcoin", "BTC's price is: ", "BTC is currently trading at: "],
   ["Here is the price chart of Ethereum", "ETH's price is: ", "ETH is currently trading at: "]
@@ -44,9 +46,9 @@ function compareArray(trigger, reply, text) {
 
   for (let i = 0; i < trigger.length; i++) {
     for (let j = 0; j < reply.length; j++) {
-      if (trigger[i][j] == text) {
+      if (trigger[i][j] === text) {
         let replies = reply[i]
-        botReply = Math.floor(Math.random() * replies.length)
+        botReply = replies[Math.floor(Math.random() * replies.length)]
         replyFound = true;
       }
     }
@@ -60,8 +62,8 @@ function compareArray(trigger, reply, text) {
 function output(input) {
   var output;
 
-  if (compareArray(trigger, reply, input)) {
-    output = compareArray(trigger, reply, input)
+  if (compareArray(triggerList, replyList, input)) {
+    output = compareArray(triggerList, replyList, input)
   } else {
     output = "Didn't work; Try another command. "
   }
