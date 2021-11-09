@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/czhou578/CryptoWebsiteMockup/issues"
   },
-  "homepage": "https://github.com/czhou578/CryptoWebsiteMockup#readme"
+  "homepage": "https://github.com/czhou578/CryptoWebsiteMockup#readme",
+  "dependencies": {
+    "socket.io": "^4.3.1"
+  }
 }
