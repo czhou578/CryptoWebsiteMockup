@@ -7,9 +7,10 @@ const chartBox = document.querySelector(".chart")
 
 function returnChart() {
   var addDiv = document.createElement('div')
-  var chart = new TradingView.widget(
+  addDiv.setAttribute("id", "chartShow")
+  new TradingView.widget(
     {
-    "width": 1180,
+    "width": 980,
     "height": 480,
     "symbol": "BINANCE:BTCUSDT",
     "interval": "D",
@@ -20,11 +21,10 @@ function returnChart() {
     "toolbar_bg": "#f1f3f6",
     "enable_publishing": false,
     "allow_symbol_change": true,
-    "container_id": "tradingview_0c572"
+    "container_id": "chartShow"
     }
   )
-
-  addDiv.append(chart)
+  
   chartBox.appendChild(addDiv)
 }
 

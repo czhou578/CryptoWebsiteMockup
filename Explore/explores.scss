@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 50px;
+}
+
 .container {
   color: black;
 }
@@ -39,6 +43,10 @@
   }
 }
 
+.chat {
+  margin-bottom: 50px;
+}
+
 .response:nth-child(odd) {
   font-size: 25px;
   padding: 10px 0px 10px 10px;
@@ -50,11 +58,3 @@
   padding: 10px 0px 10px 600px;
   background-color: lightyellow;  
 }
-
-// .tradingview-widget-container {
-//   position: absolute;
-//   top: 107px;
-//   left: 30px;
- 
-// }
-

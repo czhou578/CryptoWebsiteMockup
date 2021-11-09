@@ -1,3 +1,7 @@
+body {
+  padding-bottom: 50px;
+}
+
 .container {
   color: black;
 }
@@ -35,6 +39,10 @@
   padding: 1rem 1.25em;
   background-color: lightgreen;
   cursor: pointer;
+}
+
+.chat {
+  margin-bottom: 50px;
 }
 
 .response:nth-child(odd) {

@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="explores.css">
   <link rel="stylesheet" href="../marketplace/header.css">
   <title>Explore</title>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+
 </head>
 <body>
   <div class="container">
@@ -20,19 +22,22 @@
       </div>
     </div>
   <div class="result-body">
-    <div class="chat-box"></div>
-    <div class="input-box">
-      <form id="form">
-        <label>Message</label>
-        <input type="text" id="input" placeholder="Type Something...">
-        <button id="btn" type="submit">Submit</button>
-      </form>
+    <div class="chat">
+      <div class="chat-box"></div>
+      <div class="input-box">
+        <form id="form">
+          <label>Message</label>
+          <input type="text" id="input" placeholder="Type Something...">
+          <button id="btn" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="chart-holder">
+      <div class="chart-display">
+        <div class="chart"></div>
+      </div>      
     </div>
   </div>
-  <div class="chart-display">
-    <div class="chart"></div>
-  </div>
 </body>
-<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script src="script.js"></script>
 </html>
