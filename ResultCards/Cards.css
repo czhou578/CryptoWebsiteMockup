@@ -1,4 +1,5 @@
 .resultCard {
+  position: relative;
   height: 448px;
   width: 363px;
   background: -webkit-gradient(linear, left top, right top, color-stop(34%, #e9c909), color-stop(64%, #ffb400));
@@ -64,8 +65,45 @@
   margin-bottom: -5px;
 }
 
-.volume, .market-cap, .max-supply, .interval-hour {
+.volume, .market-cap, .max-supply, .interval-hour, .btn {
   font-size: 20px;
+}
+
+.btn {
+  position: absolute;
+  bottom: 12px;
+  margin-top: 1rem;
+  margin-left: 1.25rem;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  background-color: #4095bf;
+  color: white;
+  padding: 0.5em 0.75em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #4095bf;
+}
+
+.btn.btn-outline {
+  left: 150px;
+  background: none;
+  border: 1px solid #4095bf;
+  color: #4095bf;
+}
+
+.btn.btn-outline:hover {
+  background-color: #d9eaf2;
+}
+
+.btn.btn-outline:focus {
+  background-color: #d9eaf2;
+}
+
+.btn + .btn {
+  margin-left: 0.25rem;
 }
 
 @media only screen and (min-width: 1500px) and (max-width: 1900px) {
