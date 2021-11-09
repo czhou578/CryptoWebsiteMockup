@@ -3,6 +3,32 @@ const button = document.querySelector("button")
 const input = document.querySelector("input")
 const form = document.querySelector("form")
 const chatBox = document.querySelector(".chat-box")
+const chartBox = document.querySelector(".chart")
+
+function returnChart() {
+  var addDiv = document.createElement('div')
+  var chart = new TradingView.widget(
+    {
+    "width": 1180,
+    "height": 480,
+    "symbol": "BINANCE:BTCUSDT",
+    "interval": "D",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "allow_symbol_change": true,
+    "container_id": "tradingview_0c572"
+    }
+  )
+
+  addDiv.append(chart)
+  chartBox.appendChild(addDiv)
+}
+
+returnChart()
 
 form.addEventListener('submit', function(e) {
   const emptyString = "^\\s+$";
