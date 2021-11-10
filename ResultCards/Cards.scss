@@ -1,4 +1,4 @@
-$color: hsl(200, 50%, 50%);
+$color: hsl(273, 50%, 50%);
 
 .resultCard {
   position: relative;
@@ -55,7 +55,7 @@ $color: hsl(200, 50%, 50%);
   margin-bottom: -5px;
 }
 
-.volume, .market-cap, .max-supply, .interval-hour, .btn {
+.volume, .market-cap, .max-supply, .interval-hour {
   font-size: 20px;
 }
 
@@ -69,6 +69,7 @@ $color: hsl(200, 50%, 50%);
   border: none;
   background-color: $color;
   color: white;
+  font-size: 16px;
   padding: 0.5em 0.75em;
   border-radius: 0.25em;
   cursor: pointer;
