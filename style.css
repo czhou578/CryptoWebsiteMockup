@@ -719,8 +719,8 @@ p:last-child {
 
 @-webkit-keyframes pulseX {
   0% {
-    -webkit-transform: translateX(600px);
-            transform: translateX(600px);
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
   }
   100% {
     -webkit-transform: translateX(0px);
@@ -730,8 +730,8 @@ p:last-child {
 
 @keyframes pulseX {
   0% {
-    -webkit-transform: translateX(600px);
-            transform: translateX(600px);
+    -webkit-transform: translateX(200px);
+            transform: translateX(200px);
   }
   100% {
     -webkit-transform: translateX(0px);
