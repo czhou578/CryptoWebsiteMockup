@@ -307,7 +307,7 @@ p:last-child {
 }
 
 .display-cards {
-  margin: 400px 0px 0px 4%;
+  margin: 500px 0px 0px 7%;
 }
 
 .card-holder {
@@ -799,8 +799,8 @@ button:hover {
 }
 
 .more-wrapper {
-  margin-left: -5%;
-  padding-bottom: 300px;
+  margin-left: 0%;
+  padding-bottom: 50px;
   -webkit-transition: -webkit-transform 2s cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
   transition: -webkit-transform 2s cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
   transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1) 3s;
