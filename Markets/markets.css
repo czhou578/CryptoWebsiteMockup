@@ -56,4 +56,12 @@ body {
   padding: 10px 0px 10px 600px;
   background-color: lightyellow;
 }
-/*# sourceMappingURL=explores.css.map */
+
+.stocks {
+  margin-left: 27.7%;
+}
+
+.crypto {
+  margin-left: 25%;
+}
+/*# sourceMappingURL=markets.css.map */

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="markets.css">
+  <link rel="stylesheet" href="../marketplace/header.css">
+  <title>Markets</title>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="taskbar">
+      <a href="../index.html" class="logo">Crypto World</a>
+      <img src="../marketplace/Rectangle 12.png" alt="crypto-logo">
+      <div class="taskbar-right">
+        <a href="../Our History/history.html">Our History</a>
+        <a href="../marketplace/marketplace.html">Marketplace</a>
+        <a href="#markets" class="active">Markets</a>
+      </div>
+    </div>
+    <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/" rel="noopener" target="_blank"><span class="blue-text">Markets</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+      </script>
+    </div>
+    <div class="tradingview-widget-container crypto">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+    //   {
+    //   "width": 1000,
+    //   "height": 490,
+    //   "defaultColumn": "overview",
+    //   "screener_type": "crypto_mkt",
+    //   "displayCurrency": "USD",
+    //   "colorTheme": "dark",
+    //   "locale": "en"
+    // }
+      </script>
+    </div>    
+  <div class="stocks">
+    <div class="tradingview-widget-container">
+      <div id="tradingview_fa0d8"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/AAPL/" rel="noopener" target="_blank"><span class="blue-text">Apple</span></a> by TradingView</div>
+      <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+      <script type="text/javascript">
+      new TradingView.MediumWidget(
+      {
+      "symbols": [
+        [
+          "Apple",
+          "AAPL"
+        ],
+        [
+          "Google",
+          "GOOGL"
+        ],
+        [
+          "Microsoft",
+          "MSFT"
+        ]
+      ],
+      "chartOnly": false,
+      "width": 978,
+      "height": 400,
+      "locale": "en",
+      "colorTheme": "dark",
+      "gridLineColor": "rgba(240, 243, 250, 0)",
+      "fontColor": "#787B86",
+      "isTransparent": false,
+      "autosize": false,
+      "showVolume": false,
+      "scalePosition": "no",
+      "scaleMode": "Normal",
+      "fontFamily": "-apple-system, BlinkMacSystemFont, SegoeUI, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+      "noTimeScale": false,
+      "valuesTracking": "1",
+      "chartType": "line",
+      "container_id": "tradingview_fa0d8"
+    }
+      );
+      </script>
+    </div>    
+  </div>
+</body>
+<script src="script.js"></script>
+</html>

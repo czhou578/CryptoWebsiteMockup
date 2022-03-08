@@ -50,8 +50,6 @@ function handlePriceCheckboxes() {
         rangeArray.sort(function(a, b) {return a-b})
 
         resultSetUnique = new Set() //is creating new set properly
-        console.log(rangeArray);
-        // console.log(resultSetUnique);
 
         for (let i = 0; i < allMarketPrices.length; i++) { //compare every price with all selected price ranges
           for (let j = 0; j < rangeArray.length; j++) {
@@ -89,7 +87,6 @@ function handlePriceCheckboxes() {
 
         for (let j in cards) { //hard coded in 
           if (j == 2) {
-            console.log(cards[j]);
             cards[j].style.display = "none"
           }
         }
