@@ -1,26 +1,27 @@
 const enterButton = document.querySelector("#enter-btn")
 const inputFields = document.getElementsByTagName("input")
 const formHolder = document.querySelector(".form-holder")
-const moreSec = document.querySelector(".more")
-const descripBar = document.querySelector('.btc-descrip')
 
-enterButton.addEventListener('click', function() {
-  for (let field of inputFields) {
-    field.value = ''
-  }
-
+document.addEventListener('DOMContentLoaded', function () {
+  enterButton.addEventListener('click', function() {
+    for (let field of inputFields) {
+      field.value = ''
+    }
   
-  let loadBar = document.createElement("DIV")
-  loadBar.classList.add("w3-green")
-  loadBar.style.width = "80%"
-  loadBar.style.height = "24px"
-  loadBar.style.marginTop = "50px"
-  loadBar.style.border = "2px solid blue"
-  formHolder.replaceChild(loadBar, enterButton)
-  
-  progress();
- 
+    let loadBar = document.createElement("DIV")
+    loadBar.classList.add("w3-green")
+    loadBar.style.width = "80%"
+    loadBar.style.height = "24px"
+    loadBar.style.marginTop = "50px"
+    loadBar.style.border = "2px solid blue"
+    formHolder.replaceChild(loadBar, enterButton)
+    
+    progress();
+   
+  })
+  document.addEventListener('scroll', loadAnimation)
 })
+
 
 function progress() {
   var element = document.querySelector('.w3-green')
@@ -44,8 +45,9 @@ function progress() {
   }
 }
 
-document.addEventListener('scroll', loadAnimation)
-
+function sum(a, b) {
+  return a + b
+}
 
 function loadAnimation() {
   var scrollLeft = scrollTop = window.pageYOffset || document.documentElement.scrollTop
@@ -53,4 +55,10 @@ function loadAnimation() {
   if (scrollLeft > 800) {
     console.log('happy')
   }
+}
+
+module.exports = {
+  progress,
+  loadAnimation,
+  sum
 }

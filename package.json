@@ -4,7 +4,7 @@
   "description": "This is a crypto website that I built just to see where I can take CSS animations. Hope you all enjoy!",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/czhou578/CryptoWebsiteMockup#readme",
   "dependencies": {
     "socket.io": "^4.3.1"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
